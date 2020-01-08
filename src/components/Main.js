@@ -2,9 +2,11 @@ import React from 'react';
 
 const Main = (props) => {
 
-    const saveFav = (url, name) => {
+    const saveFav = (url, name, pairing, id) => {
         // console.log(url, name)
-        props.handleFavourites(url, name);
+        props.handleFavourites(url, name, pairing);
+        document.getElementById(`buttonClick_${id}`).innerText = 'Added to Favs'
+        document.getElementById(`buttonClick_${id}`).disabled = true;
 
     }
 
@@ -16,7 +18,7 @@ const Main = (props) => {
             <p>{item.name}</p>
             <p>{item.tagline}</p>
             <p>{item.description}</p>
-            <button type="button" onClick={() => saveFav(item.image_url, item.name)}>Add To Favourite</button>
+            <button className="button" id={`buttonClick_${item.id}`} type="button" onClick={() => saveFav(item.image_url, item.name, item.food_pairing, item.id)}>Add to Favourites</button>
             </div>));
         // console.log(pictures)
         return pictures

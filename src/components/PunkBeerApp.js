@@ -22,7 +22,7 @@ class PunkBeerApp extends React.Component {
         fetch(url)
         .then(response => response.json())
         .then(resp => {
-          // console.log(resp);
+          console.log(resp);
           this.setState(() => ({ 
             search,  
             searchResult: resp })
@@ -30,12 +30,15 @@ class PunkBeerApp extends React.Component {
         });
     }
 
-    handleFavourites = (url, name) => {
+    handleFavourites = (url, name, pairing) => {
         // console.log(url, name)
         let favourites = {url: url,
-            name: name
+            name: name,
+            pairing: pairing
         }
+
         console.log(favourites)
+        
         this.setState({ favourites: this.state.favourites.concat(favourites) }, () => console.log(this.state.favourites))
         };
 
