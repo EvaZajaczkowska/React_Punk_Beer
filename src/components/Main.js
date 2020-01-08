@@ -17,7 +17,7 @@ const Main = (props) => {
             <img src={item.image_url} alt={item.name} />
             <p>{item.name}</p>
             <p>{item.tagline}</p>
-            <p>{item.description}</p>
+            <p>{item.description.substring(0, 40).concat('...')}</p>
             <button className="button" id={`buttonClick_${item.id}`} type="button" onClick={() => saveFav(item.image_url, item.name, item.food_pairing, item.id)}>Add to Favourites</button>
             </div>));
         // console.log(pictures)
